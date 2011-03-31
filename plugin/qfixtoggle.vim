@@ -4,7 +4,7 @@
 " Last Modified: 05 October, 2005
 "
 " See ':help qfixtoggle' for more information.
-"   
+"
 if exists('g:QFixToggle_Loaded')
   finish
 endif
