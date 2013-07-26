@@ -15,7 +15,9 @@ let g:QFixToggle_Loaded = 1
 if !exists("g:QFixToggle_Height")
   let g:QFixToggle_Height = 10
 endif
-
+if !exists("g:QFixToggle_FullWidth")
+  let g:QFixToggle_FullWidth = 0
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " toggles the quickfix window.
@@ -24,7 +26,11 @@ function! QFixToggle(forced)
   if exists("g:QFixToggle_Bufnr") && a:forced == 0
     cclose
   else
-    execute "copen " . g:QFixToggle_Height
+    if g:QFixToggle_FullWidth == 1
+        execute "botright copen " . g:QFixToggle_Height
+    else
+        execute "copen " . g:QFixToggle_Height
+    endif
   endif
 endfunction
 
